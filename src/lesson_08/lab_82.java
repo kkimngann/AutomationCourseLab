@@ -14,7 +14,7 @@ public class lab_82 {
         animals.add(tiger);
 
         int maxSpeed = animals.get(0).getSpeed();
-        String maxSpeedName = "";
+        String maxSpeedName = animals.get(0).getClass().getSimpleName();
         for(int i = 1; i <= animals.size()-1; i++){
             if (animals.get(i).getSpeed() > maxSpeed){
                 maxSpeed = animals.get(i).getSpeed();

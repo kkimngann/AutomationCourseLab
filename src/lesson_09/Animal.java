@@ -1,9 +1,12 @@
 package lesson_09;
 
+import java.security.SecureRandom;
+
 public class Animal {
     private String name;
     private boolean flyable;
     private int speed;
+    private int maxSpeed;
 
     public String getName() {
         return name;
@@ -17,16 +20,21 @@ public class Animal {
         return speed;
     }
 
-    public Animal(String name, boolean flyable, int speed) {
+    public int getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    public Animal(String name, boolean flyable, int maxSpeed) {
         this.name = name;
         this.flyable = flyable;
-        this.speed = speed;
+        this.maxSpeed = maxSpeed;
+        this.speed = new SecureRandom().nextInt(this.maxSpeed);
     }
 
     public static class AnimalBuilder{
         private String name;
         private boolean flyable;
-        private int speed;
+        private int maxSpeed;
 
         private void validateAnimal() {
             if (this.name == null || this.flyable) {
@@ -45,14 +53,14 @@ public class Animal {
             return this;
         }
 
-        public AnimalBuilder withSpeed(int speed){
-            this.speed = speed;
+        public AnimalBuilder withMaxSpeed(int maxSpeed){
+            this.maxSpeed = maxSpeed;
             return this;
         }
 
         public Animal build(){
             validateAnimal();
-            return new Animal(this.name, this.flyable, this.speed);
+            return new Animal(this.name, this.flyable, this.maxSpeed);
         }
     }
 }

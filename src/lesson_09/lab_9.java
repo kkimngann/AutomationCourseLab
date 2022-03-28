@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class lab_9 {
     public static void main(String[] args) {
-        Animal horse = new Animal.AnimalBuilder().withName("Horse").withFlyable(false).withSpeed(99).build();
-        Animal dog = new Animal.AnimalBuilder().withName("Dog").withFlyable(false).withSpeed(80).build();
-        Animal tiger = new Animal.AnimalBuilder().withName("Tiger").withFlyable(false).withSpeed(70).build();
+        Animal horse = new Animal.AnimalBuilder().withName("Horse").withFlyable(false).withMaxSpeed(75).build();
+        Animal dog = new Animal.AnimalBuilder().withName("Dog").withFlyable(false).withMaxSpeed(60).build();
+        Animal tiger = new Animal.AnimalBuilder().withName("Tiger").withFlyable(false).withMaxSpeed(100).build();
 
         ArrayList<Animal> animals= new ArrayList<>();
         animals.add(horse);
         animals.add(dog);
         animals.add(tiger);
-//        Animal falcon = new Animal.AnimalBuilder().withName("Falcon").withFlyable(true).withSpeed(70).build();
+//        Animal falcon = new Animal.AnimalBuilder().withName("Falcon").withFlyable(true).withMaxSpeed(100).build();
 //        animals.add(falcon);
 
         int maxSpeed = animals.get(0).getSpeed();
